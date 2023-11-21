@@ -86,6 +86,7 @@ input{
   align-items: normal;
   align-content: normal;
   text-align: left;
+  overflow-wrap: break-word;
 }
 
 .today img{
@@ -93,6 +94,12 @@ input{
   width: 300px;
   position: relative;
   left: -5em;
+}
+.today p {
+  font-size: 20px;
+}
+.today span {
+  font-size: 20px;
 }
 .other-days{
   display: flex;
@@ -119,6 +126,8 @@ input{
   box-shadow: 0 0 10px silver;
   margin-right: 0.5em;
   margin-bottom: 0;
+  width: 8em;
+  height: 8em;
 }
 .other-day img {
   height: 50px;
