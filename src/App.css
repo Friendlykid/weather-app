@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   text-align: center;
   color: #1a1a1a;
 }
@@ -76,20 +76,23 @@ input{
   align-items: normal;
   align-content: normal;
   padding: 2em;
+  width: 50em;
 }
 .today-info{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-around;;
+  justify-content: flex-start;
   align-items: normal;
   align-content: normal;
+  text-align: left;
 }
 
-.today-info img{
-  width: 500px;
-  height: 500px;
-  transition: visibility 2s ease-out;
+.today img{
+  height: 300px;
+  width: 300px;
+  position: relative;
+  left: -5em;
 }
 .other-days{
   display: flex;
@@ -100,23 +103,31 @@ input{
   align-content: normal;
   margin: 1em;
   position: relative;
-  top: -3em;
+  top: -4em;
 }
 
 .other-day {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: normal;
+  justify-content: center;
+  align-items: center;
   align-content: normal;
   padding: 1em 1em 0 1em;
   background: transparent;
   border-radius: 20px;
   box-shadow: 0 0 10px silver;
   margin-right: 0.5em;
+  margin-bottom: 0;
+}
+.other-day img {
+  height: 50px;
+  width: 50px;
 }
 
 .other-day span{
   font-weight: bold;
+}
+
+.other-day p{
 }

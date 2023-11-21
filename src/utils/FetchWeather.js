@@ -35,7 +35,7 @@ export async function fetchWeather(cityName = null, lat = null, lon = null) {
 
     return {
         list:days.filter(a => a),
-        city: cityName ? cityName : weather.city.name
+        city: weather.city.name
     };
 }
 
