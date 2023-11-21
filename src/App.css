@@ -56,11 +56,8 @@ input{
 }
 
 .weather-box{
-  background: transparent;
-  border-radius: 20px;
-  box-shadow: 0 0 10px silver;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-around;;
   align-items: normal;
@@ -68,16 +65,58 @@ input{
   margin-top: 2em;
 }
 
-.weather-box img{
-  width: 300px;
+.today{
+  background: transparent;
+  border-radius: 20px;
+  box-shadow: 0 0 10px silver;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: normal;
+  align-content: normal;
+  padding: 2em;
+}
+.today-info{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;;
+  align-items: normal;
+  align-content: normal;
+}
+
+.today-info img{
+  width: 500px;
+  height: 500px;
   transition: visibility 2s ease-out;
 }
-.weather-box:nth-child(1){
+.other-days{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: normal;
+  align-content: normal;
+  margin: 1em;
+  position: relative;
+  top: -3em;
+}
+
+.other-day {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: normal;
   align-content: normal;
-  margin: 1em;
+  padding: 1em 1em 0 1em;
+  background: transparent;
+  border-radius: 20px;
+  box-shadow: 0 0 10px silver;
+  margin-right: 0.5em;
+}
+
+.other-day span{
+  font-weight: bold;
 }

@@ -2,26 +2,27 @@ import './App.css'
 import {useEffect, useState} from "react";
 import {CityInput} from "./CityInput.jsx";
 import {WeatherBox} from "./WeatherBox.jsx";
+import {fetchWeather} from "./utils/FetchWeather.js";
+
 function App() {
-    const [city, setCity] = useState('');
     const [weather, setWeather] = useState({
-        temp: null,
-        description: null,
-        city: null,
-        icon: null
-    });
-    const [currentCoordinates, setCurrentCoordinates] = useState({
-        latitude: null,
-        longitude: null,
+        city:'',
+        list: []
     });
 
     // Effect for getting current coordinates
     useEffect(() => {
+        let test = true;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const { latitude, longitude } = position.coords;
-                    setCurrentCoordinates({ latitude, longitude });
+                async (position) => {
+                    const {latitude, longitude} = position.coords;
+                    if(test){
+                        const data = await fetchWeather(undefined, latitude, longitude);
+                        if(data){
+                            setWeather(data);
+                        }
+                    }
                 },
                 (error) => {
                     console.error('Error getting geolocation:', error.message);
@@ -30,42 +31,17 @@ function App() {
         } else {
             console.error('Geolocation is not supported by this browser.');
         }
+
+        return () =>{
+            test = false;
+        }
     }, []);
 
-    useEffect( () => {
-        let process = true;
-
-        if(process){
-            fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${currentCoordinates.latitude}&lon=${currentCoordinates.longitude}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                }).then(data =>{
-                if(process){
-                    console.log(data);
-                    console.log(data.name);
-                    setWeather({
-                        temp:data.main.temp,
-                        description: data.weather[0].description,
-                        city: data.name,
-                        icon: data.weather[0].icon
-                    });
-                }
-            })
-        }
-
-
-        return (() =>{
-            process = false;
-        })
-    }, [currentCoordinates]);
     return (
     <>
         <h1>Weather app</h1>
-        <CityInput city={city} setCity={setCity}></CityInput>
-        {weather.city && <WeatherBox weather={weather}/>}
+        <CityInput setWeather={setWeather}/>
+        {weather.list.length !== 0 && <WeatherBox weather={weather} key={weather.city}/>}
     </>
   )
 }
