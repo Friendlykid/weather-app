@@ -72,11 +72,11 @@ input{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: normal;
-  align-content: normal;
+  align-content: center;
   padding: 2em;
-  width: 50em;
+  width: 50vw;
 }
 .today-info{
   display: flex;
@@ -92,8 +92,7 @@ input{
 .today img{
   height: 300px;
   width: 300px;
-  position: relative;
-  left: -5em;
+  margin-right: 5vw;
 }
 .today p {
   font-size: 20px;
@@ -108,9 +107,8 @@ input{
   justify-content: space-around;
   align-items: normal;
   align-content: normal;
-  margin: 1em;
   position: relative;
-  top: -4em;
+  top: -4vh;
 }
 
 .other-day {
@@ -120,18 +118,16 @@ input{
   justify-content: center;
   align-items: center;
   align-content: normal;
-  padding: 1em 1em 0 1em;
+  padding: 2vh 1vw 0;
   background: transparent;
   border-radius: 20px;
   box-shadow: 0 0 10px silver;
-  margin-right: 0.5em;
-  margin-bottom: 0;
   width: 8em;
   height: 8em;
 }
 .other-day img {
-  height: 50px;
-  width: 50px;
+  height: 10vh;
+  width: 10vw;
 }
 
 .other-day span{
