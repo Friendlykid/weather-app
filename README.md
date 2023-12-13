@@ -1,3 +1,10 @@
 # Simple React Weather App
 
-App uses [OpenWeatherAPI](openweathermap.org) for weather data.
+App uses [OpenWeatherAPI](https://openweathermap.org/api) for weather data.
+
+If you want to run it yourself, you need to get an API key from OpenWeatherAPI
+
+Create .env file and inside the file insert your API key like this:
+`VITE_WEATHER_API_KEY=YOUR_API_KEY`
+
+You can check deployed app [here.](https://fastidious-truffle-e85bbc.netlify.app/)

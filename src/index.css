@@ -29,7 +29,7 @@ body {
   place-items: baseline;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url("images/background.jpg");
+  background-image: url("/public/images/background.jpg");
   background-size: cover; /* Adjust the background size property */
   background-position: center; /* Adjust the background position if needed */
   background-repeat: no-repeat;
@@ -59,9 +59,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-
-
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -74,5 +71,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
-
